@@ -50,13 +50,13 @@ for (let j = 0; j < keyValue.length; j++)
 for (let i = 0; i < keyValue[j].length; i++) {
   let divKey = document.createElement('div');
   divKey.className = 'key';
-   if ((j == 0 && i == 13)
+   if ( (j == 0 && i == 13)
     || (j == 2 && i == 0)
     || (j == 2 && i == 12)
     || (j == 2 && i == 12)
     || (j == 3 && i == 0)
     || (j == 4 && i == 0)
-    || (j == 4 && i == 5) ){
+    || (j == 4 && i == 5) ) {
     divKey.className = 'key keyBiggerSize';
    }
       
