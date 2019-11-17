@@ -1,0 +1,45 @@
+.wrapper {
+  max-width: 855px;
+  margin: 0 auto;
+  padding: 10px 0;
+  background: rgb(52, 40, 224);
+}
+
+.textarea {
+  display: block;
+  width: 300;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.row1,
+.row2,
+.row3,
+.row4,
+.row5 {
+  display: flex;
+}
+
+.key {
+  display: flex;
+  width: 45px;
+  height: 45px;
+  margin: 5px;
+  justify-content: center;
+  align-items: center;
+  background: rgb(214, 138, 138);
+  border-radius: 3px;
+  border: 1px solid black
+}
+
+.keyBiggerSize {
+  width: 100px;
+}
+
+.space {
+  width: 275px;
+}
+
+.press-key {
+  background: rgb(245, 19, 19);
+}
