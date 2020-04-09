@@ -1,4 +1,18 @@
 /* eslint-disable no-plusplus */
+
+let localStorageLanguageFlag = localStorage.getItem('language');
+console.log(localStorageLanguageFlag);
+
+const checkLanguage = () => {
+  if (localStorageLanguageFlag === null) {
+    return 'smallEn';
+  } else {
+    return localStorage.getItem('language');
+  }
+};
+
+let languageFlag = checkLanguage();
+
 const divWrapper = document.createElement('div');
 divWrapper.className = 'wrapper';
 document.body.append(divWrapper);
@@ -53,7 +67,7 @@ const keyShiftEn = [
   ['Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', '\'', 'Del'],
   ['CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Enter'],
   ['Shift', '\\', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', ' Alt', '←', '↓', '→', 'Ctrl'],
+  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', 'Ctrl', '←', '↓', '→'],
 ];
 
 const keySmallRu = [
@@ -96,6 +110,13 @@ const keyPressed = new Set();
 // let keyValue = keySmallRu;
 // let keyValue = keyBigRu;
 // let keyValue = keyShiftRu;
+
+// let languageFlag = smallEn;
+// let languageFlag = bigEn;
+// let languageFlag = shiftEn;
+// let languageFlag = smallRu;
+// let languageFlag = bigRu;
+// let languageFlag = shiftRu;
 
 const rows = Array.from(divKeyboard.children);
 
@@ -144,7 +165,30 @@ const changeKeyboardLayout = (keyValue) => {
   }
 };
 
-changeKeyboardLayout(keySmallEn);
+const changeKeyboard = () => { 
+  switch (languageFlag) {
+    case 'smallEn':
+      changeKeyboardLayout(keySmallEn);
+      break;
+    case 'bigEn':
+      changeKeyboardLayout(keyBigEn);
+      break;
+      case 'shiftEn':
+    changeKeyboardLayout(keyShiftEn);
+    break;
+    case 'smallRu':
+    changeKeyboardLayout(keySmallRu);
+    break;
+    case 'bigRu':
+    changeKeyboardLayout(keyBigRu);
+    break;
+    case 'shiftRu':
+    changeKeyboardLayout(keyShiftRu);
+    break;
+  }
+};
+
+changeKeyboard();
 
 document.addEventListener('keydown', (event) => {
   const pressKey = document.querySelector(`div[data-code = ${event.code}]`);
@@ -154,7 +198,15 @@ document.addEventListener('keydown', (event) => {
   if ((keyPressed.has('ShiftLeft')) && (keyPressed.has('ControlLeft'))) {
     console.log('cool');
     deleteKeyboardLayoutKeys();
-    changeKeyboardLayout(keySmallRu);
+    if ((languageFlag === 'smallEn') || (languageFlag === 'keyBigEn') || (languageFlag === 'keyBigEn')) {
+      changeKeyboardLayout(keySmallRu);
+      languageFlag = 'smallRu';
+      localStorage.setItem('language', 'smallRu');
+    } else {
+      changeKeyboardLayout(keySmallEn);
+      languageFlag = 'smallEn';
+      localStorage.setItem('language', 'smallEn');
+    }
   }
 });
 

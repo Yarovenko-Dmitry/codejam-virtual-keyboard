@@ -49,10 +49,17 @@
 }
 
 .press-key {
+  border-radius: 50%;
   background: #f51313;
 }
 
-.press-key123 {
+.key:hover {
+  background-color: #31c1d4;
+  border-radius: 50%;
+}
+
+.key:active {
+  border-radius: 50%;
   background: #f51313;
 }
 /*# sourceMappingURL=style.css.map */

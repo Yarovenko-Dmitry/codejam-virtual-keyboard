@@ -41,10 +41,17 @@
 }
 
 .press-key {
+  border-radius: 50%;
   background: rgb(245, 19, 19);
 }
 
-.press-key123 {
+.key:hover {
+  background-color: #31c1d4;
+  border-radius: 50%;  
+}
+
+.key:active {  
+  border-radius: 50%;
   background: rgb(245, 19, 19);
 }
 
