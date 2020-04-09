@@ -45,7 +45,6 @@ const divRow5 = document.createElement('div');
 divRow5.className = 'row5';
 divKeyboard.append(divRow5);
 
-
 const keySmallEn = [
   ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'backspace'],
   ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'del'],
