@@ -49,6 +49,22 @@
 }
 
 .press-key {
+  border-radius: 50%;
   background: #f51313;
+}
+
+.key:hover {
+  background-color: #31c1d4;
+  border-radius: 50%;
+}
+
+.key:active {
+  border-radius: 50%;
+  background: #f51313;
+}
+
+.description-text {
+  margin-left: 10px;
+  color: #60e676;
 }
 /*# sourceMappingURL=style.css.map */
