@@ -1,18 +1,5 @@
 /* eslint-disable no-plusplus */
 
-let localStorageLanguageFlag = localStorage.getItem('language');
-console.log(localStorageLanguageFlag);
-
-const checkLanguage = () => {
-  if (localStorageLanguageFlag === null) {
-    return 'smallEn';
-  } else {
-    return localStorage.getItem('language');
-  }
-};
-
-let languageFlag = checkLanguage();
-
 const divWrapper = document.createElement('div');
 divWrapper.className = 'wrapper';
 document.body.append(divWrapper);
@@ -102,6 +89,29 @@ const dataCode = [
 ];
 
 const keyPressed = new Set();
+
+let localStorageLanguageFlag = localStorage.getItem('language');
+console.log(localStorageLanguageFlag);
+
+const checkLanguage = () => {
+  if (localStorageLanguageFlag === null) {
+    return 'smallEn';
+  } else {
+    return localStorage.getItem('language');
+  }
+};
+
+let languageFlag = checkLanguage();
+
+window.onload = function() {
+  textArea.focus();
+};
+
+document.addEventListener('mouseup', () => {
+  textArea.focus();
+});
+
+
 
 // let keyValue = keySmallEn;
 // let keyValue = keyBigEn;
