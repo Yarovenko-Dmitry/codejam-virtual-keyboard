@@ -96,7 +96,7 @@ const dataCode = [
 const keyPressed = new Set();
 
 let localStorageLanguageFlag = localStorage.getItem('language');
-console.log(localStorageLanguageFlag);
+// console.log(localStorageLanguageFlag);
 
 const checkLanguage = () => {
   if (localStorageLanguageFlag === null) {
@@ -206,7 +206,7 @@ changeKeyboard();
 document.addEventListener('keydown', (event) => {
   let pressKey = document.querySelector(`div[data-code = ${event.code}]`);
   pressKey.classList.add('press-key');
-  console.log(event.code);
+  // console.log(event.code);
   keyPressed.add(event.code);
   languageFlag = checkLanguage();
 
@@ -256,7 +256,7 @@ document.addEventListener('keydown', (event) => {
       pressKey.classList.add('press-key');
       languageFlag = 'bigEn';
       localStorage.setItem('language', 'bigEn');
-      console.log('смена CapsLock английский');
+      // console.log('смена CapsLock английский');
     } else if ((languageFlag === 'smallRu') || (languageFlag === 'shiftRu')) {
       deleteKeyboardLayoutKeys();
       changeKeyboardLayout(keyBigRu);
@@ -264,7 +264,7 @@ document.addEventListener('keydown', (event) => {
       pressKey.classList.add('press-key');
       languageFlag = 'bigRu';
       localStorage.setItem('language', 'bigRu');
-      console.log('смена CapsLock русский');
+      // console.log('смена CapsLock русский');
     }
   } else if (keyPressed.has('CapsLock') && ((languageFlag === 'bigEn') || (languageFlag === 'bigRu'))) {
     languageFlag = checkLanguage();
@@ -275,7 +275,7 @@ document.addEventListener('keydown', (event) => {
       pressKey = document.querySelector(`div[data-code = ${event.code}]`);
       pressKey.classList.add('press-key');
       localStorage.setItem('language', 'smallEn');
-      console.log('отмена CapsLock английский');
+      // console.log('отмена CapsLock английский');
     } else if (languageFlag === 'bigRu') {
       deleteKeyboardLayoutKeys();
       changeKeyboardLayout(keySmallRu);
@@ -283,7 +283,7 @@ document.addEventListener('keydown', (event) => {
       pressKey.classList.add('press-key');
       languageFlag = 'smallRu';
       localStorage.setItem('language', 'smallRu');
-      console.log('отмена CapsLock русский');
+      // console.log('отмена CapsLock русский');
     }
   }
 });
