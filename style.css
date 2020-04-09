@@ -1,0 +1,70 @@
+.wrapper {
+  max-width: 855px;
+  margin: 0 auto;
+  padding: 10px 0;
+  background: #3428e0;
+}
+
+.textarea {
+  display: block;
+  width: 300;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.row1,
+.row2,
+.row3,
+.row4,
+.row5 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.key {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 45px;
+  height: 45px;
+  margin: 5px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #d68a8a;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+
+.keyBiggerSize {
+  width: 100px;
+}
+
+.space {
+  width: 275px;
+}
+
+.press-key {
+  border-radius: 50%;
+  background: #f51313;
+}
+
+.key:hover {
+  background-color: #31c1d4;
+  border-radius: 50%;
+}
+
+.key:active {
+  border-radius: 50%;
+  background: #f51313;
+}
+
+.description-text {
+  margin-left: 10px;
+  color: #60e676;
+}
+/*# sourceMappingURL=style.css.map */
