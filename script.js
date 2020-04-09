@@ -206,7 +206,7 @@ document.addEventListener('keydown', (event) => {
       pressKey.classList.add('press-key');
       languageFlag = 'shiftEn';
       localStorage.setItem('language', 'shiftEn');
-      console.log('смена ShiftLeft английский');
+      // console.log('смена ShiftLeft английский');
     } else if (languageFlag === 'smallRu') {
       deleteKeyboardLayoutKeys();
       changeKeyboardLayout(keyShiftRu);
@@ -214,27 +214,29 @@ document.addEventListener('keydown', (event) => {
       pressKey.classList.add('press-key');
       languageFlag = 'shiftRu';
       localStorage.setItem('language', 'shiftRu');
-      console.log('смена ShiftLeft русский');
+      // console.log('смена ShiftLeft русский');
     }
   }
 
   if ((keyPressed.has('ShiftLeft')) && (keyPressed.has('ControlLeft'))) {
-    console.log('сменя языка');
+    // console.log('сменя языка');
     deleteKeyboardLayoutKeys();
     if ((languageFlag === 'smallEn') || (languageFlag === 'bigEn') || (languageFlag === 'shiftEn')) {
       changeKeyboardLayout(keySmallRu);
       languageFlag = 'smallRu';
       localStorage.setItem('language', 'smallRu');
-      console.log('сменя языка на русский');
+      // console.log('сменя языка на русский');
     } else {
       changeKeyboardLayout(keySmallEn);
       languageFlag = 'smallEn';
       localStorage.setItem('language', 'smallEn');
-      console.log('сменя языка на английский');
+      // console.log('сменя языка на английский');
     }
   }
 
-  if (keyPressed.has('CapsLock')) {
+  if (keyPressed.has('CapsLock') && ((languageFlag === 'smallEn') || (languageFlag === 'smallRu'))) {
+    languageFlag = checkLanguage();
+    // languageFlag = 'smallEn';
     if ((languageFlag === 'smallEn') || (languageFlag === 'shiftEn')) {
       deleteKeyboardLayoutKeys();
       changeKeyboardLayout(keyBigEn);
@@ -242,41 +244,36 @@ document.addEventListener('keydown', (event) => {
       pressKey.classList.add('press-key');
       languageFlag = 'bigEn';
       localStorage.setItem('language', 'bigEn');
-      console.log('смена ShiftLeft английский');
-    } 
-    else if ((languageFlag === 'smallRu') || (languageFlag === 'shiftRu')) {
+      console.log('смена CapsLock английский');
+    } else if ((languageFlag === 'smallRu') || (languageFlag === 'shiftRu')) {
       deleteKeyboardLayoutKeys();
       changeKeyboardLayout(keyBigRu);
       pressKey = document.querySelector(`div[data-code = ${event.code}]`);
       pressKey.classList.add('press-key');
       languageFlag = 'bigRu';
       localStorage.setItem('language', 'bigRu');
-      console.log('смена ShiftLeft русский');
+      console.log('смена CapsLock русский');
     }
-  }
-
-  if (keyPressed.has('CapsLock')) {
+  } else if (keyPressed.has('CapsLock') && ((languageFlag === 'bigEn') || (languageFlag === 'bigRu'))) {
+    languageFlag = checkLanguage();
+    // languageFlag = 'smallEn';
     if (languageFlag === 'bigEn') {
       deleteKeyboardLayoutKeys();
       changeKeyboardLayout(keySmallEn);
       pressKey = document.querySelector(`div[data-code = ${event.code}]`);
       pressKey.classList.add('press-key');
-      languageFlag = 'smallEn';
       localStorage.setItem('language', 'smallEn');
-      console.log('смена ShiftLeft английский');
-    } 
-    else if (languageFlag === 'bigRu') {
+      console.log('отмена CapsLock английский');
+    } else if (languageFlag === 'bigRu') {
       deleteKeyboardLayoutKeys();
       changeKeyboardLayout(keySmallRu);
       pressKey = document.querySelector(`div[data-code = ${event.code}]`);
       pressKey.classList.add('press-key');
       languageFlag = 'smallRu';
       localStorage.setItem('language', 'smallRu');
-      console.log('смена ShiftLeft русский');
+      console.log('отмена CapsLock русский');
     }
   }
-
-
 });
 
 document.addEventListener('keyup', (event) => {
@@ -292,7 +289,7 @@ document.addEventListener('keyup', (event) => {
       unPressKey.classList.add('press-key');
       languageFlag = 'smallEn';
       localStorage.setItem('language', 'smallEn');
-      console.log('СБРОС ShiftLeft английский');
+      // console.log('СБРОС ShiftLeft английский');
     } else if (languageFlag === 'shiftRu') {
       deleteKeyboardLayoutKeys();
       changeKeyboardLayout(keySmallRu);
@@ -300,7 +297,7 @@ document.addEventListener('keyup', (event) => {
       unPressKey.classList.add('press-key');
       languageFlag = 'smallRu';
       localStorage.setItem('language', 'smallRu');
-      console.log('СБРОС ShiftLeft русский');
+      // console.log('СБРОС ShiftLeft русский');
     }
   }
 
