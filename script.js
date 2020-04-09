@@ -32,6 +32,11 @@ const divRow5 = document.createElement('div');
 divRow5.className = 'row5';
 divKeyboard.append(divRow5);
 
+const pDescriptionText = document.createElement('p');
+pDescriptionText.className = 'description-text';
+divWrapper.append(pDescriptionText);
+pDescriptionText.innerText = 'Switch language - Left Shift + Left Ctrl';
+
 const keySmallEn = [
   ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'backspace'],
   ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'del'],
@@ -110,8 +115,6 @@ window.onload = function() {
 document.addEventListener('mouseup', () => {
   textArea.focus();
 });
-
-
 
 // let keyValue = keySmallEn;
 // let keyValue = keyBigEn;
